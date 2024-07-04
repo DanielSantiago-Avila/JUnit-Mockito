@@ -8,10 +8,11 @@ public class NotificadorEmail {
     }
 
     public void notificar(String direccion, String mensaje) {
-        // Lógica para enviar una notificación por correo
+        if (direccion == null || direccion.isEmpty()) {
+            return; // No enviar correo si la dirección está vacía
+        }
         emailCliente.enviarCorreo(direccion, mensaje);
     }
-
     // Método adicional para demostrar más funcionalidad si es necesario
     public void notificarAAdministradores(String mensaje) {
         emailCliente.enviarCorreo("administrador@example.com", mensaje);
